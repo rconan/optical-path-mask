@@ -166,6 +166,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     ctx.draw_series(LineSeries::new(mask_perimeter.iter().copied(), &BLACK))?;
 
+    println!("Saving contour coordinates (M1-B1) in mask_contour.csv");
     let file = File::create("mask_contour.csv")?;
     let mut wtr = csv::Writer::from_writer(file);
     wtr.serialize(mask_perimeter)?;
